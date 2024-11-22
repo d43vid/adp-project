@@ -1,3 +1,5 @@
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/d43vid/adp-project?quickstart=1)
+
 # AdpProject
 
 ## Prerequisites

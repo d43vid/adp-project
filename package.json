@@ -1,6 +1,10 @@
 {
   "name": "adp-project",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=20.14.0",
+    "npm": ">=10.9.0"
+  }
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

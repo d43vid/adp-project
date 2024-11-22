@@ -1,0 +1,11 @@
+<div class="node"
+     [ngClass]="{
+      'start': node.isStartPoint,
+      'end': node.isEndPoint,
+      'wall': node.obstructed,
+      'visited': node.visited,
+      'path': node.inPath
+      }"
+     (click)="onClick($event)"
+     #nodeDisplay>
+</div>

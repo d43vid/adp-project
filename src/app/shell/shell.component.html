@@ -1,0 +1,20 @@
+<aside>
+  <div class="navigation">
+    <h1 class="adp-header adp-magenta">
+      Algorithms and Data Structures
+    </h1>
+
+    <div class="nav-items flex flex-column gap-8">
+      @for (path of paths; track $index) {
+      <span class="nav-item adp-header"
+            [ngClass]="{ 'active': path.url | activeNav:activePath() }"
+            (click)="routeTo(path)">
+        {{ path.label }}
+      </span>
+      }
+    </div>
+  </div>
+</aside>
+<main class="content">
+  <router-outlet />
+</main>

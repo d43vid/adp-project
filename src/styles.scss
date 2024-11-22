@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/button";
+@import "./styles/flex";
+@import "./styles/icon";
+@import "./styles/vars";
+
+@import "highlight.js/styles/github-dark.css";
+
+@font-face {
+  font-family: Unbounded;
+  font-display: swap;
+  src: local("Unbounded") local("Unbounded-VariableFont") url("./assets/Unbounded-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: Figtree;
+  src: url("./assets/Figtree-VariableFont_wght.ttf") format("truetype");
+}
+
+html {
+  background-color: var(--adp-dark-blue);
+  color: var(--adp-off-white);
+  font-family: "Figtree", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+* {
+  position: relative;
+}
+
+.adp-header {
+  font-family: "Unbounded", sans-serif;
+  font-style: normal;
+}

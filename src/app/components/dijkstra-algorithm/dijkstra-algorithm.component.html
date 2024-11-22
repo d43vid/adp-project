@@ -1,0 +1,46 @@
+<h1 class="adp-header adp-magenta">Dijkstra algorithm</h1>
+<div class="flex flex-row gap-24">
+  <div class="flex flex-column gap-16">
+    <adp-code-preview [code]="(dijkstraNodeFilePath | codeFromUrl | async) || ''" />
+    <adp-code-preview [code]="(dijkstraAlgorithmFilePath | codeFromUrl | async) || ''" />
+  </div>
+
+  <div class="demo flex flex-column">
+    <div class="node-wrapper">
+      @for (r of [].constructor(rows); track ri; let ri = $index) {
+      <div class="row">
+        @for (c of [].constructor(cols); track ci; let ci = $index) {
+        <div class="col">
+          <adp-node [node]="nodes[ri][ci]"
+                    (clicked)="assignState($event, ri, ci)" />
+        </div>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="flex flex-row gap-8 m-t-sm">
+      <button class="adp-btn"
+              (click)="runDijkstra()">Run</button>
+      <button class="adp-btn"
+              (click)="reset()">Reset</button>
+    </div>
+
+    <div class="instructions">
+      <h3 class="adp-header adp-magenta">Instructions</h3>
+      <p>
+        Click on the nodes to set walls. Holding down the shift key will set the start node. While holding down the ctrl
+        key, click to set the end node. Make sure a start and end node are set before running the algorithm.
+      </p>
+
+      <h3 class="adp-header adp-magenta">Legend</h3>
+      @for (entry of legendEntries; track $index) {
+      <div class="flex flex-row align-items-center gap-24 m-b-xxs">
+        <span class="legend-entry"
+              [ngStyle]="{ 'background-color': entry.color }"></span>
+        <span class="legend-desc">{{ entry.description }}</span>
+      </div>
+      }
+    </div>
+  </div>
+</div>

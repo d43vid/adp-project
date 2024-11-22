@@ -1,0 +1,9 @@
+<pre><code class="code-preview"
+          [highlightAuto]="code"
+          [languages]="['html', 'scss', 'typescript']"></code></pre>
+<div class="copy flex flex-row">
+  <span class="copy-text m-r-xs"
+        [ngClass]="{ 'copied': copied() }">Copied!</span>
+  <adp-icon icon="copy"
+            (click)="copyCode()" />
+</div>

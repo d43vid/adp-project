@@ -1,0 +1,22 @@
+.node-wrapper {
+  margin-top: 10px;
+}
+
+.row,
+.col {
+  display: flex;
+}
+
+.row {
+  width: 80%;
+}
+
+.legend-entry {
+  aspect-ratio: 1/1;
+  height: 40px;
+  width: auto;
+}
+
+.legend-desc {
+  font-style: italic;
+}

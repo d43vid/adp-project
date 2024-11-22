@@ -1,0 +1,30 @@
+<h1 class="adp-header adp-magenta">Dynamic Array</h1>
+<div class="flex flex-row gap-24">
+  <adp-code-preview [code]="(dynamicArrayFilePath | codeFromUrl | async) || ''" />
+
+  <div class="demo flex flex-column gap-16">
+    <span class="adp-header">Array capacity: {{ arrayCapacity }}</span>
+
+    Array values:
+    <div class="array-values flex flex-row">
+      @for (value of [].constructor(dynamicArray.length); track i; let i = $index) {
+      <div class="array-value">
+        {{ dynamicArray.get(i) }}
+      </div>
+      }
+    </div>
+
+    <div class="flex flex-row">
+      <input class="adp-input"
+             type="number"
+             #valueInput />
+      <button class="adp-button m-l-xs"
+              (click)="addToArray(valueInput.value)">Add</button>
+    </div>
+
+    <div class="flex flex-row">
+      Remove last?
+      <button class="adp-button m-l-xs"
+              (click)="removeLast()">Remove</button>
+    </div>
+  </div>

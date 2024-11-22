@@ -1,0 +1,14 @@
+html {
+  --adp-dark-blue: #191923;
+  --adp-dark-blue-alt: #2d2d3e;
+  --adp-light-blue: #0e79b2;
+  --adp-light-blue-alt: #1089ca;
+  --adp-lime: #ecfae3;
+  --adp-off-white: #fbfef9;
+  --adp-off-white-rgb: 251, 254, 249;
+  --adp-magenta: #bf1363;
+}
+
+.adp-magenta {
+  color: var(--adp-magenta);
+}

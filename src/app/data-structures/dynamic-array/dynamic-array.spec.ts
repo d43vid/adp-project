@@ -1,5 +1,4 @@
 import { DynamicArray } from './dynamic-array';
-
 import * as testData from '../test-resources/dataset_sorteren.json';
 
 type SortingTestData = { [key: string]: Array<null | number | string>; };

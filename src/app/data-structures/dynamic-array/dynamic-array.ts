@@ -1,4 +1,4 @@
-type Comparator<T> = (a: T, b: T) => boolean;
+type Comparator<T> = (curr: T, array: T[], index: number) => boolean;
 
 export class DynamicArray<T> {
   private _array: T[] = [];
@@ -16,7 +16,7 @@ export class DynamicArray<T> {
 
   add(element: T): void {
     if (this._size === this._capacity) {
-      this._resize();
+      this._increaseCapacity();
     }
 
     this._array[this._size] = element;
@@ -57,10 +57,10 @@ export class DynamicArray<T> {
       return this._array.indexOf(element);
     }
 
-    return this._array.findIndex((el) => comparator(el, element));
+    return this._array.findIndex((el, index) => comparator(el, this._array, index));
   }
 
-  private _resize(): void {
+  private _increaseCapacity(): void {
     this._capacity *= 2;
     const newArray = new Array(this._capacity);
 

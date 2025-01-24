@@ -50,3 +50,58 @@ describe('Graph - `AddEdge`, `RemoveEdge`, `AddVertex` & `RemoveVertex`', () => 
     expect(graph.verticesLength()).toBe(0);
   });
 });
+
+describe('Graph - test complexity', () => {
+  const sizes = [100, 1000, 10000];
+  const graph = new Graph();
+
+  sizes.forEach((size) => {
+    // O(n)
+    it(`should add vertices to graph of ${size} elements`, () => {
+      const startTimeAdd = window.performance.now();
+      Array.from({ length: size }).forEach(() => graph.addVertex());
+      const endTimeAdd = window.performance.now();
+      const durationAdd = endTimeAdd - startTimeAdd;
+      console.log(`Duration add vertices ${size}: ${durationAdd} ms`);
+
+      expect(graph.verticesLength()).toBe(size);
+    });
+
+    // O(n)
+    it(`should add edges to graph of ${size} elements`, () => {
+      const startTimeAdd = window.performance.now();
+      Array.from({ length: size }).forEach((_, i) => graph.addEdge(i, i + 1));
+      const endTimeAdd = window.performance.now();
+      const durationAdd = endTimeAdd - startTimeAdd;
+      console.log(`Duration add edges ${size}: ${durationAdd} ms`);
+
+      expect(graph.edgesLength()).toBe(size);
+    });
+
+    /**
+     * The expected complexity of removing edges is O(n ^ 2) because when the size increases by 10, the time
+     * of the function increases by 100.
+     */
+    it(`should remove edges from graph of ${size} elements`, () => {
+      const startTimeRemove = window.performance.now();
+      Array.from({ length: size }).forEach((_, i) => graph.removeEdge(i, i + 1));
+      const endTimeRemove = window.performance.now();
+      const durationRemove = endTimeRemove - startTimeRemove;
+      console.log(`Duration remove edges ${size}: ${durationRemove} ms`);
+
+      expect(graph.edgesLength()).toBe(0);
+    });
+
+    // O(n)
+    it(`should remove vertices from graph of ${size} elements`, () => {
+      const startTimeRemove = window.performance.now();
+      Array.from({ length: size }).forEach((_, i) => graph.removeVertex(i));
+      const endTimeRemove = window.performance.now();
+      const durationRemove = endTimeRemove - startTimeRemove;
+      console.log(`Duration remove vertices ${size}: ${durationRemove} ms`);
+
+      expect(graph.verticesLength()).toBe(0);
+    });
+  });
+
+});
